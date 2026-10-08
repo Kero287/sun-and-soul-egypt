@@ -1,0 +1,167 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sun & Soul Egypt</title>
+  <meta property="og:image" content="images/cover.webp">
+  <meta name="theme-color" content="#23352f">
+  <link rel="icon" href="images/logo-transparent.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+  <nav>
+    <a class="brand-link" href="#top" aria-label="Back to top"><img src="images/logo-transparent.webp"
+        alt="Sun &amp; Soul Egypt" width="445" height="355"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false"
+      aria-controls="site-menu"><span></span><span></span><span></span><b class="sr-only">Open menu</b></button>
+    <div id="site-menu">
+      <a href="#journeys">Journeys</a>
+      <a href="#story">Our story</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <button class="lang-toggle" type="button" data-lang-toggle>العربية</button>
+    </div>
+  </nav>
+  <div id="home-view">
+    <header class="hero">
+      <main>
+        <small>SPIRITUAL JOURNEYS MINDFUL EXPERIENCES EGYPT</small>
+        <h1>Reconnect<br>with your soul<br>in Egypt.</h1>
+        <p>Meaningful journeys through nature, stillness and the living soul of Egypt.</p>
+        <a class="btn" href="#journeys">Explore our journeys</a>
+      </main>
+    </header>
+    <section id="story" class="intro">
+      <h2>Egypt beyond<br>the ordinary.</h2>
+      <p>Sun & Soul Egypt creates meaningful journeys for travelers who want to experience Egypt beyond traditional
+        sightseeing - through nature, meditation, culture, reflection and authentic local moments.</p>
+    </section>
+    <section id="journeys" class="journeys">
+      <small>A SLOWER WAY TO TRAVEL</small>
+      <h2>Choose your journey.</h2>
+      <div class="cards"></div>
+    </section>
+    <section class="med">
+      <div>
+        <small>A MOMENT FOR YOU</small>
+        <h2>Pause.<br>Breathe.<br>Be present.</h2>
+        <p>Take a moment to slow down, reconnect with nature and experience Egypt at your own pace.</p>
+        <i>
+        </i>
+      </div>
+    </section>
+    <section class="nature">
+      <div>
+        <small>NATURE AS A GUIDE</small>
+        <h2>The wisdom of nature.</h2>
+        <p>Traditional herbal experiences and natural wellness rituals may become part of your journey - grounded in
+          local knowledge and the landscapes of Egypt.</p>
+      </div>
+      <div class="herbs">
+      </div>
+    </section>
+    <section id="gallery" class="gallery">
+      <small>A GLIMPSE OF EGYPT</small>
+      <h2>Scenes to return to.</h2>
+      <div class="grid">
+        <div><img src="images/Scenes to return to/1.webp" alt="Egyptian landscape"></div>
+        <div><img src="images/Scenes to return to/3.webp" alt="Egyptian landscape"></div>
+        <div><img src="images/Scenes to return to/4.webp" alt="Egyptian landscape"></div>
+        <div><img src="images/Scenes to return to/5.webp" alt="Egyptian landscape"></div>
+        <div><img src="images/Scenes to return to/6.webp" alt="Egyptian landscape"></div>
+
+
+      </div>
+    </section>
+    <section class="why">
+      <small>THE SUN & SOUL WAY</small>
+      <h2>Travel inward, too.</h2>
+      <div class="whygrid">
+        <div>
+          <h3>Authentic experiences</h3>
+          <p>Experience Egypt beyond ordinary tourism.</p>
+        </div>
+        <div>
+          <h3>Nature & wellness</h3>
+          <p>Slow down and reconnect with nature.</p>
+        </div>
+        <div>
+          <h3>Personal journeys</h3>
+          <p>Meaningful experiences shaped around the traveler.</p>
+        </div>
+        <div>
+          <h3>Local connection</h3>
+          <p>Meet Egypt through authentic local moments.</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="cta">
+      <small>WHEN YOU ARE READY</small>
+      <h2>Your journey<br>begins here.</h2>
+      <p>Discover a different side of Egypt with Sun & Soul Egypt.</p>
+      <a class="btn" href="https://wa.me/201126409162">Contact us</a>
+    </section>
+  </div>
+  <main id="trip-view" class="trip-page" hidden>
+    <a class="back-link" href="#journeys"><span aria-hidden="true">←</span> Back to journeys</a>
+    <div class="trip-layout">
+      <img class="trip-cover" data-trip-photo alt="">
+      <div>
+        <small id="trip-location"></small>
+        <h1 id="trip-title" tabindex="-1"></h1>
+        <p id="trip-description"></p>
+        <p id="trip-price" class="trip-price"></p>
+        <h2>Journey details</h2>
+        <ul id="trip-details"></ul>
+        <a id="trip-booking" class="btn" href="https://wa.me/201126409162">Book this journey</a>
+      </div>
+    </div>
+    <div id="trip-gallery" class="trip-gallery" aria-label="Journey photo gallery">
+      <div class="gallery-stage">
+        <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">‹</button>
+        <img class="gallery-main" alt="">
+        <button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">›</button>
+        <span class="gallery-count"></span>
+      </div>
+      <div class="gallery-thumbs"></div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-brand"><a class="brand-link" href="#top" aria-label="Back to top"><img
+          src="images/logo-transparent.webp" alt="Sun &amp; Soul Egypt" width="445" height="355"></a>
+      <p>Meaningful journeys through the living soul of Egypt.</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact us</h3>
+      <a class="phone-link" href="tel:+201126409162" aria-label="Call +20 112 640 9162">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <span>+20 112 640 9162</span>
+      </a>
+      <div class="social-links" aria-label="Social media links">
+        <button type="button" class="social-icon facebook-icon" data-social-placeholder aria-label="Facebook">
+          <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="social-icon instagram-icon" data-social-placeholder aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="social-icon tiktok-icon" data-social-placeholder aria-label="TikTok">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </button>
+        <a class="social-icon-link whatsapp-icon" href="https://wa.me/201126409162" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        </a>
+      </div>
+      <p id="social-status" role="status"></p>
+    </div>
+    <span class="copyright">&copy; 2026 Sun & Soul Egypt. All rights reserved-corporated Revstay-Martin Powered By <a
+        href="https://wa.me/201026513421" target="_blank" rel="noopener"><strong>Kero Ibrahim</strong></a></span>
+  </footer>
+  <a class="wa" href="https://wa.me/201126409162"><span aria-hidden="true">☎</span> Book on WhatsApp</a>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
