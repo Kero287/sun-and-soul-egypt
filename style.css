@@ -775,7 +775,7 @@ html[lang="ar"] .trip-page h1 {
 
 @media (max-width: 700px) {
     .admin-return {
-        position: fixed;
+        position: fixed !important;
         top: 17px;
         right: calc(5vw + 45px);
         left: auto;
@@ -798,7 +798,10 @@ html[lang="ar"] .trip-page h1 {
     nav {
         padding: 15px 5vw;
         align-items: center;
-        position: absolute;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 50;
         overflow: visible;
     }
