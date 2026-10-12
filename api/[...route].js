@@ -1,1 +1,5 @@
-export { handleApi as default } from '../lib/api.mjs';
+import { handleApi } from '../lib/api.mjs';
+
+export default function handler(req, res) {
+  return handleApi(req, res);
+}
