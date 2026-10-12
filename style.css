@@ -117,23 +117,17 @@ nav a {
 }
 
 .admin-return {
-    position: fixed;
-    top: 18px;
-    left: 20px;
-    z-index: 8;
-    padding: 9px 14px;
-    border: 1px solid #ffffff88;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1px solid currentColor;
     border-radius: 6px;
-    background: #23352fcc;
-    color: #fff;
-    font-size: 11px;
+    background: transparent;
+    color: inherit;
+    font-size: 10px;
     text-decoration: none;
-    box-shadow: 0 5px 18px #1c302e33;
-}
-
-html[dir="rtl"] .admin-return {
-    right: 20px;
-    left: auto;
+    white-space: nowrap;
 }
 
 .lang-toggle {
@@ -774,34 +768,10 @@ html[lang="ar"] .trip-page h1 {
 }
 
 @media (max-width: 700px) {
-    .admin-return {
-        position: fixed !important;
-        top: 17px;
-        right: calc(5vw + 45px);
-        left: auto;
-        z-index: 70;
-        max-width: 112px;
-        padding: 7px 9px;
-        border-radius: 5px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 9px;
-        letter-spacing: 0;
-    }
-
-    html[dir="rtl"] .admin-return {
-        right: auto;
-        left: calc(5vw + 45px);
-    }
-
     nav {
         padding: 15px 5vw;
         align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+        position: absolute;
         z-index: 50;
         overflow: visible;
     }
@@ -914,6 +884,14 @@ html[lang="ar"] .trip-page h1 {
         align-self: center;
         color: var(--ink);
         border-color: var(--olive);
+    }
+
+    .admin-return {
+        max-width: 160px;
+        padding: 8px 14px;
+        color: var(--ink);
+        border-color: var(--olive);
+        font-size: 10px;
     }
 
     /* الهيرو: الصورة بعرض الشاشة كله والكلام عليها */
