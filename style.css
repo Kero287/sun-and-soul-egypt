@@ -774,6 +774,25 @@ html[lang="ar"] .trip-page h1 {
 }
 
 @media (max-width: 700px) {
+    .admin-return {
+        top: 17px;
+        right: calc(5vw + 45px);
+        left: auto;
+        z-index: 55;
+        max-width: 112px;
+        padding: 7px 9px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+
+    html[dir="rtl"] .admin-return {
+        right: auto;
+        left: calc(5vw + 45px);
+    }
+
     nav {
         padding: 15px 5vw;
         align-items: center;
