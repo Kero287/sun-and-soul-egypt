@@ -1,0 +1,246 @@
+{
+  "magic-lake": {
+    "name": "Swimming in the Magic Lake",
+    "en": {
+      "name": "Swimming in the Magic Lake",
+      "location": "Fayoum",
+      "price": "$175",
+      "description": "A day exploring Wadi El Hitan, Wadi El Rayan and the Magic Lake, with swimming, a felucca ride and sandboarding.",
+      "details": [
+        "Hotel pickup at 7:00 AM, arriving at 9:30 AM.",
+        "Visit the Valley of the Whales (Wadi El Hitan) and Wadi El Rayan, swim in the Magic Lake and visit the waterfall.",
+        "Enjoy a felucca ride and sandboarding in the Fayoum white desert.",
+        "The tour finishes at 4:00 PM, followed by hotel drop-off."
+      ]
+    },
+    "ar": {
+      "name": "السباحة في البحيرة السحرية",
+      "location": "الفيوم",
+      "price": "175 دولار",
+      "description": "يوم لاستكشاف وادي الحيتان ووادي الريان والبحيرة السحرية، مع السباحة وركوب الفلوكة والتزلج على الرمال.",
+      "details": [
+        "التحرك من الفندق الساعة 7:00 صباحًا والوصول الساعة 9:30 صباحًا.",
+        "زيارة وادي الحيتان ووادي الريان والسباحة في البحيرة السحرية وزيارة الشلال.",
+        "ركوب الفلوكة والتزلج على الرمال في صحراء الفيوم البيضاء.",
+        "تنتهي الجولة الساعة 4:00 عصرًا ثم العودة إلى الفندق."
+      ]
+    },
+    "cover": "images/Swimming in the Magic Lake/cover eltrip.webp",
+    "photos": [
+      "images/Swimming in the Magic Lake/1.webp",
+      "images/Swimming in the Magic Lake/2.webp",
+      "images/Swimming in the Magic Lake/3.webp",
+      "images/Swimming in the Magic Lake/4.webp",
+      "images/Swimming in the Magic Lake/5.webp",
+      "images/Swimming in the Magic Lake/6.webp",
+      "images/Swimming in the Magic Lake/7.webp",
+      "images/Swimming in the Magic Lake/8.webp"
+    ],
+    "published": true
+  },
+  "white-black-desert": {
+    "name": "White & Black Desert Camping",
+    "en": {
+      "name": "White & Black Desert Camping",
+      "location": "White & Black Desert",
+      "price": "From $175 / person",
+      "description": "Spend one, two or three nights camping in the desert, with food, drinks and hotel transfers included.",
+      "details": [
+        "One night: $175 per person.",
+        "Optional two-night stay: $250 per person. Optional three-night stay: $325 per person.",
+        "Includes desert camping, food, drinks and door-to-door transportation with hotel pickup and drop-off."
+      ]
+    },
+    "ar": {
+      "name": "التخييم في الصحراء البيضاء والسوداء",
+      "location": "الصحراء البيضاء والسوداء",
+      "price": "من 175 دولار للفرد",
+      "description": "تخييم في الصحراء لمدة ليلة أو ليلتين أو ثلاث ليالٍ، شامل الطعام والمشروبات والانتقالات من وإلى الفندق.",
+      "details": [
+        "ليلة واحدة: 175 دولارًا للفرد.",
+        "اختياري: ليلتان بسعر 250 دولارًا للفرد، أو ثلاث ليالٍ بسعر 325 دولارًا للفرد.",
+        "تشمل الرحلة التخييم والطعام والمشروبات والانتقالات من باب الفندق والعودة إليه."
+      ]
+    },
+    "cover": "images/White & Black Desert/cover eltrip.webp",
+    "photos": [
+      "images/White & Black Desert/1.webp",
+      "images/White & Black Desert/2.webp",
+      "images/White & Black Desert/3.webp",
+      "images/White & Black Desert/4.webp",
+      "images/White & Black Desert/5.webp",
+      "images/White & Black Desert/6.webp",
+      "images/White & Black Desert/7.webp"
+    ],
+    "published": true
+  },
+  "coptic-cairo": {
+    "name": "Coptic Cairo & Bazaar",
+    "en": {
+      "name": "Coptic Cairo & Bazaar",
+      "location": "Cairo",
+      "price": "$55",
+      "description": "Explore Islamic and Coptic Cairo, historic mosques and churches, then the old market and Khan El Khalili.",
+      "details": [
+        "Hotel pickup at 9:30 AM in a private vehicle with a knowledgeable guide.",
+        "Explore Islamic and Old Cairo, the Citadel of Saladin, Mohamed Ali Mosque and El Refai Mosque.",
+        "Continue to Coptic Cairo, the Hanging Church, the Cave Church and seven churches.",
+        "Stop for lunch, then visit the old market and Khan El Khalili Bazaar.",
+        "The tour finishes at 4:30 PM, followed by hotel drop-off."
+      ]
+    },
+    "ar": {
+      "name": "القاهرة القبطية والبازار",
+      "location": "القاهرة",
+      "price": "55 دولار",
+      "description": "استكشف القاهرة الإسلامية والقبطية ومساجدها وكنائسها التاريخية، ثم السوق القديم وخان الخليلي.",
+      "details": [
+        "الاستقبال من الفندق الساعة 9:30 صباحًا بسيارة خاصة مع مرشد متمرس.",
+        "زيارة القاهرة الإسلامية والقاهرة القديمة وقلعة صلاح الدين ومسجد محمد علي ومسجد الرفاعي.",
+        "استكمال الجولة في القاهرة القبطية والكنيسة المعلقة وكنيسة الكهف وسبع كنائس.",
+        "التوقف لتناول الغداء ثم زيارة السوق القديم وبازار خان الخليلي.",
+        "تنتهي الجولة الساعة 4:30 عصرًا ثم العودة إلى الفندق."
+      ]
+    },
+    "cover": "images/Coptic Cairo & Bazaar/cover eltrip.webp",
+    "photos": [
+      "images/Coptic Cairo & Bazaar/1.webp",
+      "images/Coptic Cairo & Bazaar/2.webp",
+      "images/Coptic Cairo & Bazaar/3.webp",
+      "images/Coptic Cairo & Bazaar/4.webp",
+      "images/Coptic Cairo & Bazaar/5.webp",
+      "images/Coptic Cairo & Bazaar/6.webp",
+      "images/Coptic Cairo & Bazaar/7.webp",
+      "images/Coptic Cairo & Bazaar/8.webp",
+      "images/Coptic Cairo & Bazaar/9.webp",
+      "images/Coptic Cairo & Bazaar/10.webp"
+    ],
+    "published": true
+  },
+  "giza-gem": {
+    "name": "Giza Pyramids & GEM",
+    "en": {
+      "name": "Giza Pyramids & GEM",
+      "location": "Giza",
+      "price": "$65 / person",
+      "description": "A full day at the pyramids, the Sphinx and the Grand Egyptian Museum, with a quiet meditation session and buffet lunch.",
+      "details": [
+        "Hotel pickup at 8:00 AM to visit the Giza pyramids and the Sphinx.",
+        "Find a quiet spot during sightseeing for a 30-minute meditation session focused on aura cleansing.",
+        "Enjoy an open-buffet lunch, followed by optional shopping for papyrus, souvenirs, Egyptian perfumes and medicinal oils.",
+        "Visit the Grand Egyptian Museum (GEM) for approximately two hours, then return to the hotel around 5:00 PM.",
+        "Price: $65 per person, including a private car, a tour guide in your language and lunch."
+      ]
+    },
+    "ar": {
+      "name": "أهرامات الجيزة والمتحف المصري الكبير",
+      "location": "الجيزة",
+      "price": "65 دولار للفرد",
+      "description": "يوم كامل في الأهرامات وأبو الهول والمتحف المصري الكبير، مع جلسة تأمل هادئة وغداء بوفيه مفتوح.",
+      "details": [
+        "الاستقبال من الفندق الساعة 8:00 صباحًا لزيارة أهرامات الجيزة وأبو الهول.",
+        "اختيار مكان هادئ أثناء الجولة لجلسة تأمل لمدة 30 دقيقة تركز على تنقية الهالة.",
+        "غداء بوفيه مفتوح، يليه تسوق اختياري للبردي والهدايا التذكارية والعطور المصرية والزيوت الطبية.",
+        "زيارة المتحف المصري الكبير لمدة ساعتين تقريبًا، ثم العودة إلى الفندق حوالي الساعة 5:00 مساءً.",
+        "السعر 65 دولارًا للفرد ويشمل سيارة خاصة ومرشدًا يتحدث لغتك والغداء."
+      ]
+    },
+    "cover": "images/GIZA PYRAMIDS & GEM/cover eltrip.webp",
+    "photos": [
+      "images/GIZA PYRAMIDS & GEM/1.webp",
+      "images/GIZA PYRAMIDS & GEM/2.webp",
+      "images/GIZA PYRAMIDS & GEM/3.webp",
+      "images/GIZA PYRAMIDS & GEM/4.webp",
+      "images/GIZA PYRAMIDS & GEM/5.webp",
+      "images/GIZA PYRAMIDS & GEM/6.webp",
+      "images/GIZA PYRAMIDS & GEM/7.webp",
+      "images/GIZA PYRAMIDS & GEM/8.webp",
+      "images/GIZA PYRAMIDS & GEM/9.webp",
+      "images/GIZA PYRAMIDS & GEM/10.webp"
+    ],
+    "published": true
+  },
+  "alexandria": {
+    "name": "Alexandria & the Mediterranean Sea",
+    "en": {
+      "name": "Alexandria & the Mediterranean Sea",
+      "location": "Alexandria",
+      "price": "$165",
+      "description": "Discover Alexandria’s ancient sites, library and seaside citadel, with a beach walk and seafood lunch.",
+      "details": [
+        "Hotel pickup at 7:00 AM, arriving in Alexandria at 9:00 AM.",
+        "Visit the Catacombs of Kom El Shoqafa, the Roman Theatre, the Library of Alexandria and the Citadel of Qaitbay.",
+        "Enjoy a walk on the Mediterranean beach and a seafood lunch.",
+        "The $165 tour includes the car, tickets, guide and seafood lunch.",
+        "The tour finishes at 3:30 PM, followed by hotel drop-off."
+      ]
+    },
+    "ar": {
+      "name": "الإسكندرية والبحر المتوسط",
+      "location": "الإسكندرية",
+      "price": "165 دولار",
+      "description": "اكتشف آثار الإسكندرية ومكتبتها وقلعتها الساحلية، مع تمشية على الشاطئ وغداء من المأكولات البحرية.",
+      "details": [
+        "التحرك من الفندق الساعة 7:00 صباحًا والوصول إلى الإسكندرية الساعة 9:00 صباحًا.",
+        "زيارة مقابر كوم الشقافة والمسرح الروماني ومكتبة الإسكندرية وقلعة قايتباي.",
+        "تمشية على شاطئ البحر المتوسط وغداء من المأكولات البحرية.",
+        "سعر الرحلة 165 دولارًا ويشمل السيارة والتذاكر والمرشد وغداء المأكولات البحرية.",
+        "تنتهي الجولة الساعة 3:30 عصرًا ثم العودة إلى الفندق."
+      ]
+    },
+    "cover": "images/Alexandria Mediterranean Sea/cover eltrip.webp",
+    "photos": [
+      "images/Alexandria Mediterranean Sea/1.webp",
+      "images/Alexandria Mediterranean Sea/2.webp",
+      "images/Alexandria Mediterranean Sea/3.webp",
+      "images/Alexandria Mediterranean Sea/4.webp",
+      "images/Alexandria Mediterranean Sea/5.webp",
+      "images/Alexandria Mediterranean Sea/6.webp",
+      "images/Alexandria Mediterranean Sea/7.webp",
+      "images/Alexandria Mediterranean Sea/8.webp",
+      "images/Alexandria Mediterranean Sea/9.webp",
+      "images/Alexandria Mediterranean Sea/10.webp"
+    ],
+    "published": true
+  },
+  "atv-camel": {
+    "name": "ATV & Camel Ride — Pyramids",
+    "en": {
+      "name": "ATV & Camel Ride — Pyramids",
+      "location": "Giza Desert",
+      "price": "ATV $35 / person",
+      "description": "Ride through the Giza desert at sunset, stop for panoramic pyramid views and relax with Bedouin tea. Camel rides are optional.",
+      "details": [
+        "Includes door-to-door transportation from and back to your hotel.",
+        "ATV option: two hours on a quad bike in the Giza pyramids desert at sunset for $35 per person. Stop for photos at a panoramic view of the nine pyramids, then sit in a Bedouin tent for tea.",
+        "Optional camel ride at the Giza sightseeing site: one hour for $45 per person, including the pyramids ticket.",
+        "Alternative desert camel ride: one hour in the Giza pyramids desert with a Bedouin tent stop and tea for $30 per person."
+      ]
+    },
+    "ar": {
+      "name": "الدراجات الرباعية وركوب الجمال — الأهرامات",
+      "location": "صحراء الجيزة",
+      "price": "دراجة رباعية: 35 دولار للفرد",
+      "description": "جولة في صحراء الجيزة عند الغروب مع إطلالة بانورامية على الأهرامات وشاي بدوي. ركوب الجمال اختياري.",
+      "details": [
+        "تشمل الانتقالات من باب الفندق والعودة إليه.",
+        "خيار الدراجة الرباعية: ساعتان في صحراء أهرامات الجيزة عند الغروب بسعر 35 دولارًا للفرد، مع توقف للتصوير عند إطلالة بانورامية على الأهرامات التسعة ثم الجلوس في خيمة بدوية وتناول الشاي.",
+        "ركوب الجمال اختياري داخل منطقة أهرامات الجيزة: ساعة بسعر 45 دولارًا للفرد تشمل تذكرة الأهرامات.",
+        "خيار آخر لركوب الجمال: ساعة في صحراء أهرامات الجيزة مع الجلوس في خيمة بدوية وتناول الشاي بسعر 30 دولارًا للفرد."
+      ]
+    },
+    "cover": "images/ATV & Camel Ride — Pyramids/cover eltrip.webp",
+    "photos": [
+      "images/ATV & Camel Ride — Pyramids/1.webp",
+      "images/ATV & Camel Ride — Pyramids/2.webp",
+      "images/ATV & Camel Ride — Pyramids/3.webp",
+      "images/ATV & Camel Ride — Pyramids/4.webp",
+      "images/ATV & Camel Ride — Pyramids/5.webp",
+      "images/ATV & Camel Ride — Pyramids/6.webp",
+      "images/ATV & Camel Ride — Pyramids/7.webp",
+      "images/ATV & Camel Ride — Pyramids/8.webp",
+      "images/ATV & Camel Ride — Pyramids/9.webp"
+    ],
+    "published": true
+  }
+}

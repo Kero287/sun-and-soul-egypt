@@ -1,210 +1,10 @@
-const trips = {
-  "magic-lake": {
-    "name": "Swimming in the Magic Lake",
-    "en": {
-      "name": "Swimming in the Magic Lake",
-      "location": "Fayoum",
-      "price": "$175",
-      "description": "A day exploring Wadi El Hitan, Wadi El Rayan and the Magic Lake, with swimming, a felucca ride and sandboarding.",
-      "details": [
-        "Hotel pickup at 7:00 AM, arriving at 9:30 AM.",
-        "Visit the Valley of the Whales (Wadi El Hitan) and Wadi El Rayan, swim in the Magic Lake and visit the waterfall.",
-        "Enjoy a felucca ride and sandboarding in the Fayoum white desert.",
-        "The tour finishes at 4:00 PM, followed by hotel drop-off."
-      ]
-    },
-    "ar": {
-      "name": "السباحة في البحيرة السحرية",
-      "location": "الفيوم",
-      "price": "175 دولار",
-      "description": "يوم لاستكشاف وادي الحيتان ووادي الريان والبحيرة السحرية، مع السباحة وركوب الفلوكة والتزلج على الرمال.",
-      "details": [
-        "التحرك من الفندق الساعة 7:00 صباحًا والوصول الساعة 9:30 صباحًا.",
-        "زيارة وادي الحيتان ووادي الريان والسباحة في البحيرة السحرية وزيارة الشلال.",
-        "ركوب الفلوكة والتزلج على الرمال في صحراء الفيوم البيضاء.",
-        "تنتهي الجولة الساعة 4:00 عصرًا ثم العودة إلى الفندق."
-      ]
-    }
-  },
-  "white-black-desert": {
-    "name": "White & Black Desert Camping",
-    "en": {
-      "name": "White & Black Desert Camping",
-      "location": "White & Black Desert",
-      "price": "From $175 / person",
-      "description": "Spend one, two or three nights camping in the desert, with food, drinks and hotel transfers included.",
-      "details": [
-        "One night: $175 per person.",
-        "Optional two-night stay: $250 per person. Optional three-night stay: $325 per person.",
-        "Includes desert camping, food, drinks and door-to-door transportation with hotel pickup and drop-off."
-      ]
-    },
-    "ar": {
-      "name": "التخييم في الصحراء البيضاء والسوداء",
-      "location": "الصحراء البيضاء والسوداء",
-      "price": "من 175 دولار للفرد",
-      "description": "تخييم في الصحراء لمدة ليلة أو ليلتين أو ثلاث ليالٍ، شامل الطعام والمشروبات والانتقالات من وإلى الفندق.",
-      "details": [
-        "ليلة واحدة: 175 دولارًا للفرد.",
-        "اختياري: ليلتان بسعر 250 دولارًا للفرد، أو ثلاث ليالٍ بسعر 325 دولارًا للفرد.",
-        "تشمل الرحلة التخييم والطعام والمشروبات والانتقالات من باب الفندق والعودة إليه."
-      ]
-    }
-  },
-  "coptic-cairo": {
-    "name": "Coptic Cairo & Bazaar",
-    "en": {
-      "name": "Coptic Cairo & Bazaar",
-      "location": "Cairo",
-      "price": "$55",
-      "description": "Explore Islamic and Coptic Cairo, historic mosques and churches, then the old market and Khan El Khalili.",
-      "details": [
-        "Hotel pickup at 9:30 AM in a private vehicle with a knowledgeable guide.",
-        "Explore Islamic and Old Cairo, the Citadel of Saladin, Mohamed Ali Mosque and El Refai Mosque.",
-        "Continue to Coptic Cairo, the Hanging Church, the Cave Church and seven churches.",
-        "Stop for lunch, then visit the old market and Khan El Khalili Bazaar.",
-        "The tour finishes at 4:30 PM, followed by hotel drop-off."
-      ]
-    },
-    "ar": {
-      "name": "القاهرة القبطية والبازار",
-      "location": "القاهرة",
-      "price": "55 دولار",
-      "description": "استكشف القاهرة الإسلامية والقبطية ومساجدها وكنائسها التاريخية، ثم السوق القديم وخان الخليلي.",
-      "details": [
-        "الاستقبال من الفندق الساعة 9:30 صباحًا بسيارة خاصة مع مرشد متمرس.",
-        "زيارة القاهرة الإسلامية والقاهرة القديمة وقلعة صلاح الدين ومسجد محمد علي ومسجد الرفاعي.",
-        "استكمال الجولة في القاهرة القبطية والكنيسة المعلقة وكنيسة الكهف وسبع كنائس.",
-        "التوقف لتناول الغداء ثم زيارة السوق القديم وبازار خان الخليلي.",
-        "تنتهي الجولة الساعة 4:30 عصرًا ثم العودة إلى الفندق."
-      ]
-    }
-  },
-  "giza-gem": {
-    "name": "Giza Pyramids & GEM",
-    "en": {
-      "name": "Giza Pyramids & GEM",
-      "location": "Giza",
-      "price": "$65 / person",
-      "description": "A full day at the pyramids, the Sphinx and the Grand Egyptian Museum, with a quiet meditation session and buffet lunch.",
-      "details": [
-        "Hotel pickup at 8:00 AM to visit the Giza pyramids and the Sphinx.",
-        "Find a quiet spot during sightseeing for a 30-minute meditation session focused on aura cleansing.",
-        "Enjoy an open-buffet lunch, followed by optional shopping for papyrus, souvenirs, Egyptian perfumes and medicinal oils.",
-        "Visit the Grand Egyptian Museum (GEM) for approximately two hours, then return to the hotel around 5:00 PM.",
-        "Price: $65 per person, including a private car, a tour guide in your language and lunch."
-      ]
-    },
-    "ar": {
-      "name": "أهرامات الجيزة والمتحف المصري الكبير",
-      "location": "الجيزة",
-      "price": "65 دولار للفرد",
-      "description": "يوم كامل في الأهرامات وأبو الهول والمتحف المصري الكبير، مع جلسة تأمل هادئة وغداء بوفيه مفتوح.",
-      "details": [
-        "الاستقبال من الفندق الساعة 8:00 صباحًا لزيارة أهرامات الجيزة وأبو الهول.",
-        "اختيار مكان هادئ أثناء الجولة لجلسة تأمل لمدة 30 دقيقة تركز على تنقية الهالة.",
-        "غداء بوفيه مفتوح، يليه تسوق اختياري للبردي والهدايا التذكارية والعطور المصرية والزيوت الطبية.",
-        "زيارة المتحف المصري الكبير لمدة ساعتين تقريبًا، ثم العودة إلى الفندق حوالي الساعة 5:00 مساءً.",
-        "السعر 65 دولارًا للفرد ويشمل سيارة خاصة ومرشدًا يتحدث لغتك والغداء."
-      ]
-    }
-  },
-  "alexandria": {
-    "name": "Alexandria & the Mediterranean Sea",
-    "en": {
-      "name": "Alexandria & the Mediterranean Sea",
-      "location": "Alexandria",
-      "price": "$165",
-      "description": "Discover Alexandria’s ancient sites, library and seaside citadel, with a beach walk and seafood lunch.",
-      "details": [
-        "Hotel pickup at 7:00 AM, arriving in Alexandria at 9:00 AM.",
-        "Visit the Catacombs of Kom El Shoqafa, the Roman Theatre, the Library of Alexandria and the Citadel of Qaitbay.",
-        "Enjoy a walk on the Mediterranean beach and a seafood lunch.",
-        "The $165 tour includes the car, tickets, guide and seafood lunch.",
-        "The tour finishes at 3:30 PM, followed by hotel drop-off."
-      ]
-    },
-    "ar": {
-      "name": "الإسكندرية والبحر المتوسط",
-      "location": "الإسكندرية",
-      "price": "165 دولار",
-      "description": "اكتشف آثار الإسكندرية ومكتبتها وقلعتها الساحلية، مع تمشية على الشاطئ وغداء من المأكولات البحرية.",
-      "details": [
-        "التحرك من الفندق الساعة 7:00 صباحًا والوصول إلى الإسكندرية الساعة 9:00 صباحًا.",
-        "زيارة مقابر كوم الشقافة والمسرح الروماني ومكتبة الإسكندرية وقلعة قايتباي.",
-        "تمشية على شاطئ البحر المتوسط وغداء من المأكولات البحرية.",
-        "سعر الرحلة 165 دولارًا ويشمل السيارة والتذاكر والمرشد وغداء المأكولات البحرية.",
-        "تنتهي الجولة الساعة 3:30 عصرًا ثم العودة إلى الفندق."
-      ]
-    }
-  },
-  "atv-camel": {
-    "name": "ATV & Camel Ride — Pyramids",
-    "en": {
-      "name": "ATV & Camel Ride — Pyramids",
-      "location": "Giza Desert",
-      "price": "ATV $35 / person",
-      "description": "Ride through the Giza desert at sunset, stop for panoramic pyramid views and relax with Bedouin tea. Camel rides are optional.",
-      "details": [
-        "Includes door-to-door transportation from and back to your hotel.",
-        "ATV option: two hours on a quad bike in the Giza pyramids desert at sunset for $35 per person. Stop for photos at a panoramic view of the nine pyramids, then sit in a Bedouin tent for tea.",
-        "Optional camel ride at the Giza sightseeing site: one hour for $45 per person, including the pyramids ticket.",
-        "Alternative desert camel ride: one hour in the Giza pyramids desert with a Bedouin tent stop and tea for $30 per person."
-      ]
-    },
-    "ar": {
-      "name": "الدراجات الرباعية وركوب الجمال — الأهرامات",
-      "location": "صحراء الجيزة",
-      "price": "دراجة رباعية: 35 دولار للفرد",
-      "description": "جولة في صحراء الجيزة عند الغروب مع إطلالة بانورامية على الأهرامات وشاي بدوي. ركوب الجمال اختياري.",
-      "details": [
-        "تشمل الانتقالات من باب الفندق والعودة إليه.",
-        "خيار الدراجة الرباعية: ساعتان في صحراء أهرامات الجيزة عند الغروب بسعر 35 دولارًا للفرد، مع توقف للتصوير عند إطلالة بانورامية على الأهرامات التسعة ثم الجلوس في خيمة بدوية وتناول الشاي.",
-        "ركوب الجمال اختياري داخل منطقة أهرامات الجيزة: ساعة بسعر 45 دولارًا للفرد تشمل تذكرة الأهرامات.",
-        "خيار آخر لركوب الجمال: ساعة في صحراء أهرامات الجيزة مع الجلوس في خيمة بدوية وتناول الشاي بسعر 30 دولارًا للفرد."
-      ]
-    }
-  }
-};
-
-const tripMedia = {
-  "magic-lake": {
-    folder: "Swimming in the Magic Lake",
-    files: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp"]
-  },
-  "white-black-desert": {
-    folder: "White & Black Desert",
-    files: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp"]
-  },
-  "coptic-cairo": {
-    folder: "Coptic Cairo & Bazaar",
-    files: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp", "9.webp", "10.webp"]
-  },
-  "giza-gem": {
-    folder: "GIZA PYRAMIDS & GEM",
-    files: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp", "9.webp", "10.webp"]
-  },
-  "alexandria": {
-    folder: "Alexandria Mediterranean Sea",
-    files: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp", "9.webp", "10.webp"]
-  },
-  "atv-camel": {
-    folder: "ATV & Camel Ride — Pyramids",
-    files: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp", "9.webp"]
-  }
-};
-
-Object.entries(tripMedia).forEach(([key, media]) => {
-  const folder = `images/${media.folder}`;
-  const cover = `${folder}/${media.cover || "cover eltrip.webp"}`;
-  trips[key].cover = cover;
-  trips[key].photos = media.files.map(file => `${folder}/${file}`);
-});
+let trips = {};
 
 const home = document.querySelector('#home-view');
 const detail = document.querySelector('#trip-view');
 const booking = document.querySelector('#trip-booking');
 const floatingBooking = document.querySelector('.wa');
+const adminReturn = document.querySelector('[data-admin-return]');
 const contactUrl = 'https://wa.me/201126409162';
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 const translations = {
@@ -213,11 +13,12 @@ const translations = {
 };
 
 function renderCards(lang) {
+  const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   document.querySelector('.cards').innerHTML = Object.entries(trips).map(([key, trip]) => {
     const copy = trip[lang];
     return `<a class="journey-card" href="#trip/${key}"><article>
-      <div class="photo"><img src="${encodeURI(trip.cover)}" alt="${copy.name}" loading="lazy" decoding="async"></div>
-      <h3>${copy.name}</h3><label>${copy.location} · ${copy.price}</label><p>${copy.description}</p>
+      <div class="photo"><img src="${escape(encodeURI(trip.cover))}" alt="${escape(copy.name)}" loading="lazy" decoding="async"></div>
+      <h3>${escape(copy.name)}</h3><label>${escape(copy.location)} · ${escape(copy.price)}</label><p>${escape(copy.description)}</p>
       <span class="explore-label">${translations[lang].exploreCard} <span aria-hidden="true">${lang === 'ar' ? '←' : '→'}</span></span>
     </article></a>`;
   }).join('');
@@ -255,6 +56,7 @@ function applyLanguage(lang) {
     document.querySelectorAll(selector).forEach(el => { el.textContent = lang === 'ar' ? arabic : english; });
   });
   document.querySelector('#social-status').textContent = '';
+  if (adminReturn && !adminReturn.hidden) adminReturn.textContent = lang === 'ar' ? 'العودة للوحة الإدارة ↩' : 'Back to admin ↩';
 }
 
 const supplementalCopy = [
@@ -302,6 +104,7 @@ function renderRoute() {
     const cover = document.querySelector('.trip-cover');
     cover.src = encodeURI(trip.cover); cover.alt = copy.name;
     const gallery = document.querySelector('#trip-gallery');
+    gallery.hidden = trip.photos.length === 0;
     const mainImage = gallery.querySelector('.gallery-main');
     const thumbs = gallery.querySelector('.gallery-thumbs');
     let currentPhoto = 0;
@@ -331,13 +134,14 @@ function renderRoute() {
     };
     thumbs.replaceChildren(...trip.photos.map((src, index) => {
       const button = document.createElement('button'); button.type = 'button'; button.setAttribute('aria-label', `View photo ${index + 1}`);
-      const thumbnailSrc = src.replace(/\.webp$/i, '-thumb.webp');
+      const thumbnailSrc = trip.thumbnails?.[src] || (src.startsWith('images/') ? src.replace(/\.webp$/i, '-thumb.webp') : src);
       const img = document.createElement('img'); img.src = encodeURI(thumbnailSrc); img.alt = ''; img.loading = 'eager'; img.decoding = 'async'; img.fetchPriority = 'low'; button.append(img);
+      img.onerror = () => { img.onerror = null; img.src = encodeURI(src); };
       button.addEventListener('click', () => showPhoto(index)); return button;
     }));
     gallery.querySelector('.gallery-prev').onclick = () => showPhoto(currentPhoto - 1);
     gallery.querySelector('.gallery-next').onclick = () => showPhoto(currentPhoto + 1);
-    showPhoto(0);
+    if (trip.photos.length) showPhoto(0);
     const message = lang === 'ar' ? `مرحبًا، أود حجز رحلة ${copy.name}. أرجو إرسال المواعيد المتاحة.` : `Hello, I would like to book ${copy.name}. Please send me the available dates.`;
     booking.href = `${contactUrl}?text=${encodeURIComponent(message)}`;
     floatingBooking.href = booking.href;
@@ -371,7 +175,48 @@ document.querySelectorAll('#site-menu a').forEach(link => link.addEventListener(
 
 window.addEventListener('hashchange', renderRoute);
 applyLanguage(localStorage.getItem('sun-soul-lang') || 'en');
-renderRoute();
+async function loadTrips() {
+  const status = document.querySelector('#journeys-status');
+  status.hidden = false;
+  status.textContent = document.documentElement.lang === 'ar' ? 'جارٍ تحميل الرحلات…' : 'Loading journeys…';
+  try {
+    let response = await fetch('/api/trips', { cache: 'no-store', signal: AbortSignal.timeout(15000) });
+    let catalog;
+    if (response.status === 404) {
+      response = await fetch('data/trips.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error();
+      catalog = await response.json();
+    } else {
+      if (!response.ok) throw new Error();
+      catalog = (await response.json()).trips;
+    }
+    trips = catalog;
+    renderCards(document.documentElement.lang);
+    status.hidden = Object.keys(trips).length > 0;
+    status.textContent = document.documentElement.lang === 'ar' ? 'رحلات جديدة قريبًا.' : 'New journeys coming soon.';
+    renderRoute();
+  } catch {
+    status.textContent = document.documentElement.lang === 'ar' ? 'تعذر تحميل الرحلات. ' : 'Unable to load journeys. ';
+    const retry = document.createElement('button');
+    retry.type = 'button'; retry.textContent = document.documentElement.lang === 'ar' ? 'حاول مرة أخرى' : 'Try again';
+    retry.addEventListener('click', loadTrips);
+    status.append(retry);
+  }
+}
+loadTrips();
+async function revealAdminReturn() {
+  if (!adminReturn) return;
+  try {
+    const response = await fetch('/api/admin/session', { credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.timeout(5000) });
+    if (!response.ok) return;
+    const session = await response.json();
+    if (session.authenticated) {
+      adminReturn.hidden = false;
+      adminReturn.textContent = document.documentElement.lang === 'ar' ? 'العودة للوحة الإدارة ↩' : 'Back to admin ↩';
+    }
+  } catch { /* The public site stays unchanged for visitors and static previews. */ }
+}
+revealAdminReturn();
 if (!location.hash && !location.hash.startsWith('#trip/')) {
   requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
 }

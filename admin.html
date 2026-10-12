@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#23352f">
+  <title>Trip Management | Sun &amp; Soul Egypt</title>
+  <link rel="icon" href="images/logo-transparent.webp">
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <section id="login-view" class="login-view">
+    <div class="login-brand"><img src="images/logo-transparent.webp" alt="Sun & Soul Egypt"><span>Meaningful journeys through Egypt.</span></div>
+    <div class="login-card">
+      <span class="eyebrow">SUN &amp; SOUL · ADMIN</span>
+      <h1 id="login-title">Welcome back.</h1>
+      <p id="login-description">Sign in to manage journeys and photos.</p>
+      <form id="login-form">
+        <label for="password">Password</label>
+        <div class="password-field"><input id="password" type="password" autocomplete="current-password" maxlength="256" required><button id="show-password" type="button" aria-label="Show password">Show</button></div>
+        <p id="login-error" class="field-error" role="alert"></p>
+        <button id="login-submit" class="primary wide" type="submit" disabled>Loading…</button>
+      </form>
+      <a class="quiet-link" href="/">Back to website ←</a>
+    </div>
+  </section>
+  <div id="dashboard" class="dashboard" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="/"><img src="images/logo-transparent.webp" alt="Sun & Soul Egypt"></a>
+      <span class="sidebar-caption">Admin dashboard</span>
+      <button class="nav-active" id="nav-trips" type="button"><span aria-hidden="true">◈</span> Journeys <span id="sidebar-count" class="count">0</span></button>
+      <a href="/" target="_blank" rel="noopener"><span aria-hidden="true">↗</span> Visit website</a>
+      <div class="sidebar-bottom"><span class="online-dot"></span> Journey workspace<button id="logout" type="button">Log out ←</button></div>
+    </aside>
+    <main class="workspace">
+      <header class="topbar"><span>Sun &amp; Soul Egypt <span class="divider">/</span> <b>Journey management</b></span><a href="/" target="_blank" rel="noopener">Preview website ↗</a></header>
+      <section id="list-view">
+        <div class="page-heading"><div><span class="eyebrow">Your journeys, in one place</span><h1>Every journey starts here.</h1><p>Add new experiences and update journey details and photos.</p></div><button id="add-trip" class="primary" type="button"><span aria-hidden="true">＋</span> Add journey</button></div>
+        <div class="stats"><div><span>Total journeys</span><strong id="total-count">—</strong><small>All Sun &amp; Soul experiences</small></div><div><span>Published journeys</span><strong id="published-count">—</strong><small>Visible to website visitors</small></div><div><span>Drafts</span><strong id="draft-count">—</strong><small>Ready to complete</small></div></div>
+        <div class="list-tools"><div class="search-field"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search by journey name or location…" aria-label="Search journeys"></div><select id="filter" aria-label="Filter journeys"><option value="all">All journeys</option><option value="published">Published</option><option value="draft">Drafts</option></select><button id="refresh" class="secondary" type="button">Refresh</button></div>
+        <p id="list-status" class="list-status" role="status"></p>
+        <div id="trip-list" class="trip-list"></div>
+      </section>
+      <section id="editor-view" hidden>
+        <button id="back-to-list" class="text-button" type="button">← Back to journeys</button>
+        <div class="page-heading editor-heading"><div><span class="eyebrow">Details that shape the experience</span><h1 id="editor-title">Add a new journey</h1><p>Write the details and choose photos that tell the story.</p></div><span id="save-state" class="save-state">No changes saved</span></div>
+        <form id="trip-form">
+          <div class="editor-layout">
+            <div class="editor-main">
+              <section class="panel">
+                <div class="panel-heading"><h2>Journey information</h2><span class="panel-note">Write in English only · Arabic is generated automatically</span></div>
+                <div class="language-tabs" role="tablist" aria-label="Journey detail language"><button id="tab-en" class="active" type="button" role="tab" aria-selected="true" aria-controls="fields-en" data-language="en">English</button></div>
+                <div id="fields-en" class="language-fields" role="tabpanel" aria-labelledby="tab-en" dir="ltr">
+                  <label>Journey name <input name="en-name" maxlength="200" required placeholder="e.g. A quiet day in Siwa"></label>
+                  <div class="field-row"><label>Location <input name="en-location" maxlength="150" required placeholder="Siwa Oasis"></label><label>Price <input name="en-price" maxlength="150" required placeholder="From $150 / person"></label></div>
+                  <label>Short description <textarea name="en-description" maxlength="3000" rows="4" required placeholder="Tell travelers what makes this journey special…"></textarea></label>
+                  <label>Journey details <textarea name="en-details" maxlength="40000" rows="7" placeholder="Hotel pickup at 7:00 AM&#10;Explore the oasis with a local guide&#10;Return to your hotel after sunset"></textarea><small>One item per line. Up to 40 items.</small></label>
+                </div>
+              </section>
+              <section class="panel"><div class="panel-heading"><div><h2>Journey photos</h2><p>Full-size photos with their original proportions and no cropping.</p></div><span id="photo-count" class="badge">0 / 30</span></div>
+                <label class="upload-area" id="gallery-drop"><input id="gallery-input" type="file" accept="image/jpeg,image/png,image/webp" multiple><span class="upload-icon" aria-hidden="true">＋</span><strong>Click or drag journey photos here</strong><small>JPG, PNG, WebP · up to 20 MB per image</small></label>
+                <p id="upload-status" class="upload-status" role="status"></p><div id="photo-grid" class="photo-grid"></div>
+              </section>
+            </div>
+            <aside class="editor-side">
+              <section class="panel"><h2>Journey cover</h2><p>The main image shown on the journey card.</p><div id="cover-preview" class="cover-preview"><span>Choose the first journey photo</span></div><label class="secondary upload-button">Choose cover photo<input id="cover-input" type="file" accept="image/jpeg,image/png,image/webp"></label><small class="help">The cover keeps the full image without stretching or cropping.</small></section>
+              <section class="panel"><h2>Publishing</h2><label class="switch-row"><span><strong>Show on website</strong><small>Turn off to save as a draft.</small></span><input id="published" type="checkbox" checked role="switch"></label><p id="editor-error" class="field-error" role="alert"></p><button id="save-trip" class="primary wide" type="submit">Save journey</button><button id="preview-trip" class="secondary wide" type="button">Preview card</button></section>
+              <section class="preview-panel"><span class="eyebrow">As visitors see it</span><article id="live-preview" class="live-preview"><div class="preview-photo"></div><h3>Journey name</h3><span class="preview-meta">Location · Price</span><p>Journey description appears here.</p><span class="preview-link">Explore journey →</span></article></section>
+            </aside>
+          </div>
+        </form>
+      </section>
+      <footer class="admin-footer">Sun &amp; Soul Egypt <span>Meaningful journeys. Simple management.</span></footer>
+    </main>
+  </div>
+  <dialog id="confirm-dialog"><form method="dialog"><span class="eyebrow">SUN &amp; SOUL</span><h2 id="confirm-title"></h2><p id="confirm-text"></p><div class="dialog-actions"><button class="secondary" value="cancel">Cancel</button><button id="confirm-action" class="primary" value="confirm">Confirm</button></div></form></dialog>
+</body>
+</html>
