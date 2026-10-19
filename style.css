@@ -1003,10 +1003,11 @@ html[lang="ar"] .trip-page h1 {
     background: #e9dfd0;
 }
 
-.photo img {
+.photo img,
+.photo video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 }
 

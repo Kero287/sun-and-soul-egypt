@@ -79,7 +79,7 @@ input[type=file] { position:absolute; width:1px; height:1px; opacity:0; }
 .trip-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
 .trip-card { border-radius:12px; border:1px solid var(--border); overflow:hidden; background:var(--white); display:flex; flex-direction:column; }
 .trip-card-photo { position:relative; height:190px; background:#eae5da; }
-.trip-card-photo img,.trip-card-photo video { width:100%; height:100%; object-fit:contain; }
+.trip-card-photo img,.trip-card-photo video { width:100%; height:100%; object-fit:cover; }
 .badge { display:inline-block; background:#e8eee1; color:#586e43; padding:3px 9px; border-radius:5px; font-size:11px; font-weight:600; }
 .badge.draft { background:#f4e6cc; color:#94743b; }
 .trip-card-photo .badge { position:absolute; right:12px; top:12px; box-shadow:0 1px 7px #23352f14; }
@@ -125,9 +125,9 @@ input[type=file] { position:absolute; width:1px; height:1px; opacity:0; }
 .photo-controls button:disabled { opacity:.3; cursor:default; }
 .editor-side .panel { padding:20px; }
 .cover-preview { background:#eeeade; height:170px; border-radius:8px; display:grid; place-items:center; overflow:hidden; margin:16px 0 12px; }
-.cover-preview img,.cover-preview video { width:100%; height:100%; object-fit:contain; }
+.cover-preview img,.cover-preview video { width:100%; height:100%; object-fit:cover; }
 .cover-preview span { color:var(--muted); font-size:12px; }
-.cover-preview img { width:100%; height:100%; object-fit:contain; }
+.cover-preview img { width:100%; height:100%; object-fit:cover; }
 .upload-button { position:relative; cursor:pointer; width:100%; font-size:12px; }
 .switch-row { display:flex; justify-content:space-between; align-items:center; gap:10px; margin:18px 0; }
 .switch-row strong { font-size:13px; }
@@ -138,7 +138,7 @@ input[type=file] { position:absolute; width:1px; height:1px; opacity:0; }
 .preview-panel { padding:0 6px; }
 .live-preview { border:1px solid #dfded3; background:var(--cream); border-radius:10px; overflow:hidden; margin-top:10px; direction:ltr; text-align:left; }
 .preview-photo { height:180px; background:#e9dfd0; }
-.preview-photo img { width:100%; height:100%; object-fit:contain; }
+.preview-photo img { width:100%; height:100%; object-fit:cover; }
 .live-preview h3 { font:500 24px Georgia,serif; margin:18px 18px 7px; overflow-wrap:anywhere; }
 .preview-meta { display:block; margin:0 18px; color:#59664d; font-size:10px; }
 .live-preview p { margin:12px 18px; color:#607065; font-size:12px; overflow-wrap:anywhere; }
