@@ -1,5 +1,5 @@
 const $ = selector => document.querySelector(selector);
-const state = { trips: {}, revision: 0, id: null, cover: '', photos: [], thumbnails: {}, dirty: false, busy: false, loaded: false };
+const state = { trips: {}, revision: 0, id: null, cover: '', coverType: 'image', photos: [], videos: [], thumbnails: {}, dirty: false, busy: false, loaded: false };
 let noticeTimeout;
 
 function notify(message, error = false) {
@@ -21,6 +21,9 @@ async function api(path, options = {}) {
 }
 function element(tag, className, value) { const node = document.createElement(tag); if (className) node.className = className; if (value !== undefined) node.textContent = value; return node; }
 function image(src, alt = '') { const node = element('img'); node.src = encodeURI(src); node.alt = alt; node.loading = 'lazy'; node.decoding = 'async'; return node; }
+function video(src, className = '') { const node = document.createElement('video'); node.className = className; node.src = encodeURI(src); node.muted = true; node.loop = true; node.autoplay = true; node.playsInline = true; node.setAttribute('aria-label', 'Journey video'); return node; }
+function mediaNode(src, type, alt = '') { return type === 'video' ? video(src) : image(src, alt); }
+function mediaType(src, fallback = 'image') { return /\.(mp4|webm)(?:[?#].*)?$/i.test(src || '') ? 'video' : fallback; }
 function button(label, className, action, ariaLabel) { const node = element('button', className, label); node.type = 'button'; if (ariaLabel) node.setAttribute('aria-label', ariaLabel); node.addEventListener('click', action); return node; }
 function markDirty() { state.dirty = true; $('#save-state').textContent = 'Unsaved changes'; }
 function setBusy(value) { state.busy = value; document.querySelectorAll('#editor-view button, #editor-view input[type=file]').forEach(node => { node.disabled = value; }); $('#save-trip').textContent = value ? 'Working…' : 'Save journey'; if (!value) renderPhotos(); }
@@ -39,7 +42,7 @@ function renderList() {
   $('#list-status').textContent = visible.length + ' journey' + (visible.length === 1 ? '' : 's') + (query ? ' matching your search' : '');
   const cards = visible.map(([id, trip]) => {
     const en = trip.en || {}, ar = trip.ar || en, card = element('article', 'trip-card'), photo = element('div', 'trip-card-photo');
-    photo.append(image(trip.cover, en.name || 'Journey'), element('span', 'badge' + (trip.published === false ? ' draft' : ''), trip.published === false ? 'Draft' : 'Published'));
+    photo.append(mediaNode(trip.cover, mediaType(trip.cover, trip.coverType), en.name || 'Journey'), element('span', 'badge' + (trip.published === false ? ' draft' : ''), trip.published === false ? 'Draft' : 'Published'));
     const content = element('div', 'trip-card-content'); content.append(element('h3', '', en.name), element('div', 'trip-card-meta', en.location + ' · ' + en.price), element('p', '', en.description));
     const actions = element('div', 'trip-card-actions'); actions.append(button('Edit journey ↗', '', () => openEditor(id), 'Edit ' + en.name));
     if (trip.published !== false) { const link = element('a', '', 'Preview'); link.href = '/#trip/' + id; link.target = '_blank'; link.rel = 'noopener'; actions.append(link); }
@@ -57,47 +60,53 @@ async function enterDashboard() { $('#login-view').hidden = true; $('#dashboard'
 function showList() { state.dirty = false; $('#editor-view').hidden = true; $('#list-view').hidden = false; renderList(); window.scrollTo(0, 0); }
 function openEditor(id = null) {
   state.id = id; state.dirty = false; const trip = id ? state.trips[id] : null; $('#trip-form').reset();
-  state.cover = trip?.cover || ''; state.photos = [...(trip?.photos || [])]; state.thumbnails = { ...(trip?.thumbnails || {}) };
-  for (const field of ['name', 'location', 'price', 'description', 'details']) { const value = trip?.en?.[field] || ''; $('[name="en-' + field + '"]').value = field === 'details' && Array.isArray(value) ? value.join('\n') : value; }
+  state.cover = trip?.cover || ''; state.coverType = mediaType(state.cover, trip?.coverType || 'image'); state.photos = [...(trip?.photos || [])]; state.videos = [...(trip?.videos || [])]; state.thumbnails = { ...(trip?.thumbnails || {}) };
+  const english = { ...(trip || {}), ...(trip?.en || {}) };
+  for (const field of ['name', 'location', 'price', 'description', 'details']) { const value = english[field] || ''; $('[name="en-' + field + '"]').value = field === 'details' && Array.isArray(value) ? value.join('\n') : value; }
   $('#published').checked = trip?.published !== false; $('#editor-title').textContent = trip ? 'Edit journey' : 'Add a new journey'; $('#save-state').textContent = trip ? 'All changes saved' : 'No changes saved';
   $('#editor-error').textContent = ''; $('#upload-status').textContent = ''; renderMedia(); updatePreview(); $('#list-view').hidden = true; $('#editor-view').hidden = false; window.scrollTo(0, 0);
 }
-function renderMedia() { $('#cover-preview').replaceChildren(state.cover ? image(state.cover, 'Journey cover') : element('span', '', 'Choose the first journey photo')); renderPhotos(); updatePreview(); }
+function renderMedia() { $('#cover-preview').replaceChildren(state.cover ? mediaNode(state.cover, state.coverType, 'Journey cover') : element('span', '', 'Choose the first journey media')); renderPhotos(); updatePreview(); }
 function renderPhotos() {
-  $('#photo-count').textContent = state.photos.length + ' / 30';
-  $('#photo-grid').replaceChildren(...state.photos.map((src, index) => {
-    const card = element('div', 'photo-item'); card.append(image(state.thumbnails[src] || src, 'Journey photo ' + (index + 1)));
+  const items = [...state.photos.map(src => ({ src, type: 'image' })), ...state.videos.map(src => ({ src, type: 'video' }))];
+  $('#photo-count').textContent = items.length + ' / 30';
+  $('#photo-grid').replaceChildren(...items.map(({ src, type }, index) => {
+    const card = element('div', 'photo-item'); card.append(type === 'video' ? video(src) : image(state.thumbnails[src] || src, 'Journey photo ' + (index + 1)));
     const controls = element('div', 'photo-controls');
-    const cover = button(src === state.cover ? '✓ Cover' : 'Set as cover', '', () => { state.cover = src; markDirty(); renderMedia(); }, 'Set photo ' + (index + 1) + ' as cover');
-    const earlier = button('←', '', () => { [state.photos[index - 1], state.photos[index]] = [src, state.photos[index - 1]]; markDirty(); renderPhotos(); }, 'Move photo earlier');
-    const later = button('→', '', () => { [state.photos[index + 1], state.photos[index]] = [src, state.photos[index + 1]]; markDirty(); renderPhotos(); }, 'Move photo later');
-    const remove = button('×', 'remove-photo', () => { state.photos.splice(index, 1); delete state.thumbnails[src]; markDirty(); renderPhotos(); }, 'Remove photo ' + (index + 1));
-    cover.disabled = state.busy; earlier.disabled = state.busy || index === 0; later.disabled = state.busy || index === state.photos.length - 1; remove.disabled = state.busy; controls.append(cover, earlier, later, remove); card.append(controls); return card;
+    const cover = button(src === state.cover ? '✓ Cover' : 'Set as cover', '', () => { state.cover = src; state.coverType = type; markDirty(); renderMedia(); }, 'Set media ' + (index + 1) + ' as cover');
+    const remove = button('×', 'remove-photo', () => { const list = type === 'video' ? state.videos : state.photos; list.splice(list.indexOf(src), 1); delete state.thumbnails[src]; if (src === state.cover) { state.cover = ''; state.coverType = 'image'; } markDirty(); renderPhotos(); }, 'Remove media ' + (index + 1));
+    cover.disabled = state.busy; remove.disabled = state.busy; controls.append(cover, remove); card.append(controls); return card;
   }));
 }
-function updatePreview() { const field = name => $('[name="en-' + name + '"]').value.trim(); $('#live-preview .preview-photo').replaceChildren(...(state.cover ? [image(state.cover)] : [])); $('#live-preview h3').textContent = field('name') || 'Journey name'; $('#live-preview .preview-meta').textContent = (field('location') || 'Location') + ' · ' + (field('price') || 'Price'); $('#live-preview p').textContent = field('description') || 'Your journey description appears here.'; }
+function updatePreview() { const field = name => $('[name="en-' + name + '"]').value.trim(); $('#live-preview .preview-photo').replaceChildren(...(state.cover ? [mediaNode(state.cover, state.coverType)] : [])); $('#live-preview h3').textContent = field('name') || 'Journey name'; $('#live-preview .preview-meta').textContent = (field('location') || 'Location') + ' · ' + (field('price') || 'Price'); $('#live-preview p').textContent = field('description') || 'Your journey description appears here.'; }
 async function prepareImage(file) {
   if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) throw new Error('Use a JPG, PNG, or WebP image.');
-  if (file.size > 20 * 1024 * 1024) throw new Error('The image is larger than 20 MB. Choose a smaller file.');
+  if (file.size > 50 * 1024 * 1024) throw new Error('The image is larger than 50 MB. Choose a smaller file.');
   let bitmap; try { bitmap = await createImageBitmap(file); } catch { throw new Error('Unable to read the image. Choose a valid image file.'); }
   const canvas = document.createElement('canvas'), render = async (size, quality) => { const scale = Math.min(1, size / Math.max(bitmap.width, bitmap.height)); canvas.width = Math.max(1, Math.round(bitmap.width * scale)); canvas.height = Math.max(1, Math.round(bitmap.height * scale)); canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height); return new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Unable to process the image.')), 'image/webp', quality)); };
   try { let large = await render(2400, .88); if (large.size > 2800000) large = await render(2000, .75); if (large.size > 2800000) throw new Error('The processed image is too large. Choose a smaller image.'); let thumb = await render(480, .78); if (thumb.size > 150000) thumb = await render(360, .65); const toDataURL = blob => new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(new Error('Unable to read the image.')); reader.readAsDataURL(blob); }); return { image: await toDataURL(large), thumbnail: await toDataURL(thumb) }; }
   finally { bitmap.close(); canvas.width = 0; canvas.height = 0; }
 }
+async function prepareVideo(file) {
+  if (!['video/mp4', 'video/webm'].includes(file.type)) throw new Error('Use an MP4 or WebM video.');
+  if (file.size > 50 * 1024 * 1024) throw new Error('The video is larger than 50 MB. Choose a smaller file.');
+  const toDataURL = new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(new Error('Unable to read the video.')); reader.readAsDataURL(file); });
+  return { video: await toDataURL };
+}
 async function uploadFiles(files, asCover = false) {
   if (state.busy || !files.length) return; const selected = [...files];
-  if (asCover && selected.length !== 1) { notify('Choose one image for the cover.', true); return; }
-  if (!asCover && state.photos.length + selected.length > 30) { notify('You can add up to 30 images per journey.', true); return; }
+  if (asCover && selected.length !== 1) { notify('Choose one image or video for the cover.', true); return; }
+  if (!asCover && state.photos.length + state.videos.length + selected.length > 30) { notify('You can add up to 30 media files per journey.', true); return; }
   setBusy(true); markDirty(); let successful = 0;
-  try { for (let index = 0; index < selected.length; index++) { $('#upload-status').textContent = 'Preparing and uploading image ' + (index + 1) + ' of ' + selected.length + '…'; const result = await api('admin/upload', { method: 'POST', body: JSON.stringify(await prepareImage(selected[index])) }); if (asCover) state.cover = result.src; else { state.photos.push(result.src); state.thumbnails[result.src] = result.thumbnail; if (!state.cover) state.cover = result.src; } successful++; renderMedia(); } notify('Images uploaded. Save the journey to publish the changes.'); }
-  catch (error) { notify(error.message, true); } finally { setBusy(false); $('#cover-input').value = ''; $('#gallery-input').value = ''; $('#upload-status').textContent = successful ? successful + ' image' + (successful === 1 ? '' : 's') + ' uploaded. Click “Save journey” to confirm.' : 'No images uploaded. Try again.'; }
+  try { for (let index = 0; index < selected.length; index++) { const file = selected[index], type = file.type.startsWith('video/') ? 'video' : 'image'; $('#upload-status').textContent = 'Preparing and uploading ' + type + ' ' + (index + 1) + ' of ' + selected.length + '…'; const result = await api('admin/upload', { method: 'POST', body: JSON.stringify(type === 'video' ? await prepareVideo(file) : await prepareImage(file)) }); if (asCover) { state.cover = result.src; state.coverType = type; } else { (type === 'video' ? state.videos : state.photos).push(result.src); if (result.thumbnail) state.thumbnails[result.src] = result.thumbnail; if (!state.cover) { state.cover = result.src; state.coverType = type; } } successful++; renderMedia(); } notify('Media uploaded. Save the journey to publish the changes.'); }
+  catch (error) { notify(error.message, true); } finally { setBusy(false); $('#cover-input').value = ''; $('#gallery-input').value = ''; $('#upload-status').textContent = successful ? successful + ' media file' + (successful === 1 ? '' : 's') + ' uploaded. Click “Save journey” to confirm.' : 'No media uploaded. Try again.'; }
 }
 $('#trip-form').noValidate = true;
 $('#trip-form').addEventListener('submit', async event => {
   event.preventDefault(); if (state.busy) return; $('#editor-error').textContent = '';
   if (!$('#trip-form').checkValidity()) { $('#trip-form').reportValidity(); return; }
-  if (!state.cover) { $('#editor-error').textContent = 'Choose a cover image first.'; $('#cover-input').focus(); return; }
-  const trip = { cover: state.cover, photos: state.photos, thumbnails: state.thumbnails, published: $('#published').checked, en: {} };
+  if (!state.cover) { $('#editor-error').textContent = 'Choose a cover image or video first.'; $('#cover-input').focus(); return; }
+  const trip = { cover: state.cover, coverType: state.coverType, photos: state.photos, videos: state.videos, thumbnails: state.thumbnails, published: $('#published').checked, en: {} };
   for (const field of ['name', 'location', 'price', 'description']) trip.en[field] = $('[name=en-' + field + ']').value.trim();
   trip.en.details = $('[name=en-details]').value.split('\n').map(value => value.trim()).filter(Boolean); setBusy(true);
   try { const result = await api('admin/trips', { method: state.id ? 'PUT' : 'POST', body: JSON.stringify({ id: state.id, trip, revision: state.revision }) }); state.trips = result.trips; state.revision = result.revision; state.dirty = false; showList(); notify(trip.published ? 'Journey saved and published.' : 'Journey saved as a draft.'); }

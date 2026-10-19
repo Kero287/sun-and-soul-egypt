@@ -6,7 +6,7 @@ import { handleApi } from './lib/api.mjs';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const uploads = resolve(process.env.UPLOAD_DIR || 'uploads');
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png', '.mp4': 'video/mp4', '.webm': 'video/webm' };
 const publicFiles = new Set(['/index.html', '/style.css', '/script.js', '/admin.html', '/admin.css', '/admin.js', '/data/trips.json']);
 const server = createServer(async (req, res) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -19,7 +19,7 @@ const server = createServer(async (req, res) => {
     let path = decodeURIComponent(url.pathname);
     if (path === '/') path = '/index.html';
     if (path === '/admin' || path === '/admin/') path = '/admin.html';
-    const isUpload = /^\/uploads\/[a-f0-9-]+(?:-thumb)?\.(webp|png|jpg)$/.test(path);
+    const isUpload = /^\/uploads\/[a-f0-9-]+(?:-thumb)?\.(webp|png|jpg|mp4|webm)$/.test(path);
     if (!publicFiles.has(path) && !path.startsWith('/images/') && !isUpload) throw new Error();
     const base = isUpload ? uploads : root;
     const target = resolve(base, isUpload ? path.slice(9) : `.${path}`);

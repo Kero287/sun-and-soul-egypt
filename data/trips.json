@@ -165,26 +165,26 @@
     "en": {
       "name": "Alexandria & the Mediterranean Sea",
       "location": "Alexandria",
-      "price": "$165",
+      "price": "$155",
       "description": "Discover Alexandria’s ancient sites, library and seaside citadel, with a beach walk and seafood lunch.",
       "details": [
         "Hotel pickup at 7:00 AM, arriving in Alexandria at 9:00 AM.",
         "Visit the Catacombs of Kom El Shoqafa, the Roman Theatre, the Library of Alexandria and the Citadel of Qaitbay.",
         "Enjoy a walk on the Mediterranean beach and a seafood lunch.",
-        "The $165 tour includes the car, tickets, guide and seafood lunch.",
+        "The $155 tour includes the car, guide and seafood lunch.",
         "The tour finishes at 3:30 PM, followed by hotel drop-off."
       ]
     },
     "ar": {
       "name": "الإسكندرية والبحر المتوسط",
       "location": "الإسكندرية",
-      "price": "165 دولار",
+      "price": "155 دولار",
       "description": "اكتشف آثار الإسكندرية ومكتبتها وقلعتها الساحلية، مع تمشية على الشاطئ وغداء من المأكولات البحرية.",
       "details": [
         "التحرك من الفندق الساعة 7:00 صباحًا والوصول إلى الإسكندرية الساعة 9:00 صباحًا.",
         "زيارة مقابر كوم الشقافة والمسرح الروماني ومكتبة الإسكندرية وقلعة قايتباي.",
         "تمشية على شاطئ البحر المتوسط وغداء من المأكولات البحرية.",
-        "سعر الرحلة 165 دولارًا ويشمل السيارة والتذاكر والمرشد وغداء المأكولات البحرية.",
+        "سعر الرحلة 155 دولارًا ويشمل السيارة والمرشد وغداء المأكولات البحرية.",
         "تنتهي الجولة الساعة 3:30 عصرًا ثم العودة إلى الفندق."
       ]
     },
@@ -212,8 +212,9 @@
       "description": "Ride through the Giza desert at sunset, stop for panoramic pyramid views and relax with Bedouin tea. Camel rides are optional.",
       "details": [
         "Includes door-to-door transportation from and back to your hotel.",
-        "ATV option: two hours on a quad bike in the Giza pyramids desert at sunset for $35 per person. Stop for photos at a panoramic view of the nine pyramids, then sit in a Bedouin tent for tea.",
-        "Optional camel ride at the Giza sightseeing site: one hour for $45 per person, including the pyramids ticket.",
+        "ATV option: one hour on a quad bike in the Giza pyramids desert at sunset for $35 per person. Stop for photos at a panoramic view of the nine pyramids, then sit in a Bedouin tent for tea.",
+        "Optional 2 hours quad bike: $45 per person.",
+        "Optional camel ride at the Giza sightseeing site: one hour for $45 per person.",
         "Alternative desert camel ride: one hour in the Giza pyramids desert with a Bedouin tent stop and tea for $30 per person."
       ]
     },
@@ -224,8 +225,9 @@
       "description": "جولة في صحراء الجيزة عند الغروب مع إطلالة بانورامية على الأهرامات وشاي بدوي. ركوب الجمال اختياري.",
       "details": [
         "تشمل الانتقالات من باب الفندق والعودة إليه.",
-        "خيار الدراجة الرباعية: ساعتان في صحراء أهرامات الجيزة عند الغروب بسعر 35 دولارًا للفرد، مع توقف للتصوير عند إطلالة بانورامية على الأهرامات التسعة ثم الجلوس في خيمة بدوية وتناول الشاي.",
-        "ركوب الجمال اختياري داخل منطقة أهرامات الجيزة: ساعة بسعر 45 دولارًا للفرد تشمل تذكرة الأهرامات.",
+        "خيار الدراجة الرباعية: ساعة واحدة في صحراء أهرامات الجيزة عند الغروب بسعر 35 دولارًا للفرد، مع توقف للتصوير عند إطلالة بانورامية على الأهرامات التسعة ثم الجلوس في خيمة بدوية وتناول الشاي.",
+        "اختياري: ساعتان بالدراجة الرباعية بسعر 45 دولارًا للفرد.",
+        "ركوب الجمال اختياري داخل منطقة أهرامات الجيزة: ساعة بسعر 45 دولارًا للفرد.",
         "خيار آخر لركوب الجمال: ساعة في صحراء أهرامات الجيزة مع الجلوس في خيمة بدوية وتناول الشاي بسعر 30 دولارًا للفرد."
       ]
     },
@@ -241,6 +243,45 @@
       "images/ATV & Camel Ride — Pyramids/8.webp",
       "images/ATV & Camel Ride — Pyramids/9.webp"
     ],
+    "published": true
+  },
+  "nile-cruise-luxor-aswan": {
+    "name": "Nile Cruise from Luxor to Aswan",
+    "en": {
+      "name": "Nile Cruise from Luxor to Aswan",
+      "location": "Luxor · Edfu · Kom Ombo · Aswan",
+      "price": "USD 1045 per person",
+      "description": "A 4-day, 3-night 5-star Nile cruise from Luxor to Aswan, with ancient temples, guided sightseeing and all meals included.",
+      "details": [
+        "Day 1 – Luxor: Meet and greet, transfer to the cruise ship, check-in and lunch, then visit Karnak Temple and Luxor Temple. Dinner and overnight on board.",
+        "Day 2 – Luxor / Esna / Edfu: Breakfast, visit the Valley of the Kings, Hatshepsut Temple and the Colossi of Memnon. Sail through the Esna Lock to Edfu. Dinner and overnight on board.",
+        "Day 3 – Edfu / Kom Ombo: Breakfast, visit the Temple of Horus in Edfu, sail to Kom Ombo and visit its temple, then continue to Aswan. Dinner and overnight on board.",
+        "Day 4 – Aswan: Breakfast and check-out, then visit the High Dam, the Unfinished Obelisk and Philae Temple. End of the tour in Aswan.",
+        "Price includes: Accommodation on board a 5-star Nile cruise ship, all meals mentioned, sightseeing tours, a private specialized tour guide, air-conditioned transfers, entrance fees and meet-and-greet service.",
+        "Price excludes: Beverages, tips and gratuities, visits or services not mentioned in the itinerary, and personal expenses."
+      ]
+    },
+    "ar": {
+      "name": "رحلة نيلية من الأقصر إلى أسوان",
+      "location": "الأقصر · إدفو · كوم أمبو · أسوان",
+      "price": "1045 دولار للفرد",
+      "description": "رحلة نيلية لمدة 4 أيام و3 ليالٍ على متن باخرة 5 نجوم من الأقصر إلى أسوان، تشمل المعابد التاريخية والجولات بصحبة مرشد وجميع الوجبات.",
+      "details": [
+        "اليوم الأول – الأقصر: استقبال وترحيب والانتقال إلى الباخرة وتسجيل الوصول وتناول الغداء، ثم زيارة معبدي الكرنك والأقصر. العشاء والمبيت على متن الباخرة.",
+        "اليوم الثاني – الأقصر / إسنا / إدفو: الإفطار، ثم زيارة وادي الملوك ومعبد حتشبسوت وتمثالي ممنون. الإبحار عبر هويس إسنا إلى إدفو، ثم العشاء والمبيت على متن الباخرة.",
+        "اليوم الثالث – إدفو / كوم أمبو: الإفطار، زيارة معبد حورس في إدفو، ثم الإبحار إلى كوم أمبو وزيارة المعبد، ومواصلة الإبحار إلى أسوان. العشاء والمبيت على متن الباخرة.",
+        "اليوم الرابع – أسوان: الإفطار وتسجيل المغادرة، ثم زيارة السد العالي والمسلة الناقصة ومعبد فيلة. نهاية الجولة في أسوان.",
+        "السعر يشمل: الإقامة على متن باخرة نيلية 5 نجوم، جميع الوجبات المذكورة، الجولات السياحية، مرشدًا خاصًا، الانتقالات بسيارة مكيفة، تذاكر الدخول وخدمة الاستقبال والانتقالات حسب البرنامج.",
+        "السعر لا يشمل: المشروبات والإكراميات وأي زيارات أو خدمات غير مذكورة والمصروفات الشخصية."
+      ]
+    },
+    "cover": "images/Nile Cruise from Luxor to Aswan/cover.mp4",
+    "coverType": "video",
+    "photos": [],
+    "videos": [
+      "images/Nile Cruise from Luxor to Aswan/1.mp4"
+    ],
+    "thumbnails": {},
     "published": true
   }
 }

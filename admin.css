@@ -79,7 +79,7 @@ input[type=file] { position:absolute; width:1px; height:1px; opacity:0; }
 .trip-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
 .trip-card { border-radius:12px; border:1px solid var(--border); overflow:hidden; background:var(--white); display:flex; flex-direction:column; }
 .trip-card-photo { position:relative; height:190px; background:#eae5da; }
-.trip-card-photo img { width:100%; height:100%; object-fit:contain; }
+.trip-card-photo img,.trip-card-photo video { width:100%; height:100%; object-fit:contain; }
 .badge { display:inline-block; background:#e8eee1; color:#586e43; padding:3px 9px; border-radius:5px; font-size:11px; font-weight:600; }
 .badge.draft { background:#f4e6cc; color:#94743b; }
 .trip-card-photo .badge { position:absolute; right:12px; top:12px; box-shadow:0 1px 7px #23352f14; }
@@ -118,12 +118,14 @@ input[type=file] { position:absolute; width:1px; height:1px; opacity:0; }
 .photo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
 .photo-item { border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#f1eee6; }
 .photo-item img { width:100%; height:105px; object-fit:contain; }
+.photo-item video { width:100%; height:105px; object-fit:contain; display:block; }
 .photo-controls { display:flex; justify-content:space-between; padding:5px; background:var(--white); gap:3px; }
 .photo-controls button { border:0; background:none; font-size:10px; color:var(--muted); padding:3px; }
 .photo-controls button.remove-photo { color:var(--danger); }
 .photo-controls button:disabled { opacity:.3; cursor:default; }
 .editor-side .panel { padding:20px; }
 .cover-preview { background:#eeeade; height:170px; border-radius:8px; display:grid; place-items:center; overflow:hidden; margin:16px 0 12px; }
+.cover-preview img,.cover-preview video { width:100%; height:100%; object-fit:contain; }
 .cover-preview span { color:var(--muted); font-size:12px; }
 .cover-preview img { width:100%; height:100%; object-fit:contain; }
 .upload-button { position:relative; cursor:pointer; width:100%; font-size:12px; }

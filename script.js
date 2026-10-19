@@ -6,9 +6,10 @@ const booking = document.querySelector('#trip-booking');
 const floatingBooking = document.querySelector('.wa');
 const adminReturn = document.querySelector('[data-admin-return]');
 const contactUrl = 'https://wa.me/201126409162';
+function video(src) { const node = document.createElement('video'); node.src = encodeURI(src); node.muted = true; node.loop = true; node.autoplay = true; node.playsInline = true; return node; }
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 const translations = {
-  en: { nav: ['Journeys', 'Our story', 'Gallery', 'Contact'], heroKicker: 'SPIRITUAL JOURNEYS     MINDFUL EXPERIENCES     EGYPT', heroTitle: 'Reconnect<br>with your soul<br>in Egypt.', heroText: 'Meaningful journeys through nature, stillness and the living soul of Egypt.', explore: 'Explore our journeys', storyTitle: 'Egypt beyond<br>the ordinary.', storyText: 'Sun & Soul Egypt creates meaningful journeys for travelers who want to experience Egypt beyond traditional sightseeing - through nature, meditation, culture, reflection and authentic local moments.', journeyKicker: 'A SLOWER WAY TO TRAVEL', journeyTitle: 'Choose your journey.', exploreCard: 'Explore journey', back: 'Back to journeys', lang: 'العربية', pause: 'Pause.<br>Breathe.<br>Be present.', nature: 'The wisdom of nature.', gallery: 'Scenes to return to.', why: 'Travel inward, too.', cta: 'Your journey<br>begins here.', contact: 'Contact us', book: 'Book this journey' },
+  en: { nav: ['Journeys', 'Our story', 'Gallery', 'Contact'], heroKicker: 'SPIRITUAL JOURNEYS     MINDFUL EXPERIENCES     EGYPT', heroTitle: 'Reconnect<br>with your soul<br>in Egypt.', heroText: 'Meaningful journeys through nature, stillness and the living soul of Egypt.', explore: 'Explore our journeys', storyTitle: 'Egypt beyond<br>the ordinary.', storyText: 'Sun & Soul Egypt spiritual tours invite you to reconnect with your soul and reveal the metaphysical spirit of Egypt. Our 2026/2027 meditation tours are designed to awaken the full potential of your mind and fill your heart with a sense of divinity. The ancient Egyptians saw their land as a sacred reflection of heaven on earth and the Nile as an earthly mirror of the Milky Way. We are called to sail upon this celestial river, align with the Divine Mother energy, awaken our inner power and experience the higher consciousness of this ancient land. By connecting with the seven chakras of the Nile, we activate the higher chakras within a transformative 10-day spiritual journey through Egypt.', journeyKicker: 'A SLOWER WAY TO TRAVEL', journeyTitle: 'Choose your journey.', exploreCard: 'Explore journey', back: 'Back to journeys', lang: 'العربية', pause: 'Pause.<br>Breathe.<br>Be present.', nature: 'The wisdom of nature.', gallery: 'Scenes to return to.', why: 'Travel inward, too.', cta: 'Your journey<br>begins here.', contact: 'Contact us', book: 'Book this journey' },
   ar: { nav: ['الرحلات', 'قصتنا', 'المعرض', 'تواصل معنا'], heroKicker: 'رحلات روحية     تجارب واعية     مصر', heroTitle: 'أعد الاتصال<br>بروحك<br>في مصر.', heroText: 'رحلات ذات معنى وسط الطبيعة والسكينة وروح مصر الحية.', explore: 'اكتشف رحلاتنا', storyTitle: 'مصر تتجاوز<br>المعتاد.', storyText: 'تصمم Sun & Soul Egypt رحلات ذات معنى للمسافرين الذين يرغبون في اكتشاف مصر بعيداً عن السياحة التقليدية، من خلال الطبيعة والتأمل والثقافة واللحظات المحلية الأصيلة.', journeyKicker: 'طريقة أبطأ للسفر', journeyTitle: 'اختر رحلتك.', exploreCard: 'اكتشف الرحلة', back: 'العودة إلى الرحلات', lang: 'English', pause: 'توقّف.<br>تنفّس.<br>عِش اللحظة.', nature: 'حكمة الطبيعة.', gallery: 'مشاهد تستحق العودة إليها.', why: 'سافر إلى داخلك أيضاً.', cta: 'رحلتك<br>تبدأ من هنا.', contact: 'تواصل معنا', book: 'احجز هذه الرحلة' }
 };
 
@@ -16,8 +17,11 @@ function renderCards(lang) {
   const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   document.querySelector('.cards').innerHTML = Object.entries(trips).map(([key, trip]) => {
     const copy = trip[lang];
+    const cover = trip.coverType === 'video'
+      ? `<video src="${escape(encodeURI(trip.cover))}" autoplay muted loop playsinline aria-label="${escape(copy.name)}"></video>`
+      : `<img src="${escape(encodeURI(trip.cover))}" alt="${escape(copy.name)}" loading="lazy" decoding="async">`;
     return `<a class="journey-card" href="#trip/${key}"><article>
-      <div class="photo"><img src="${escape(encodeURI(trip.cover))}" alt="${escape(copy.name)}" loading="lazy" decoding="async"></div>
+      <div class="photo">${cover}</div>
       <h3>${escape(copy.name)}</h3><label>${escape(copy.location)} · ${escape(copy.price)}</label><p>${escape(copy.description)}</p>
       <span class="explore-label">${translations[lang].exploreCard} <span aria-hidden="true">${lang === 'ar' ? '←' : '→'}</span></span>
     </article></a>`;
@@ -101,47 +105,52 @@ function renderRoute() {
     document.querySelector('#trip-details').replaceChildren(...copy.details.map(text => {
       const item = document.createElement('li'); item.textContent = text; return item;
     }));
-    const cover = document.querySelector('.trip-cover');
-    cover.src = encodeURI(trip.cover); cover.alt = copy.name;
+    const oldCover = document.querySelector('.trip-cover');
+    const cover = trip.coverType === 'video' ? document.createElement('video') : document.createElement('img');
+    cover.className = 'trip-cover';
+    if (trip.coverType === 'video') { cover.autoplay = true; cover.muted = true; cover.loop = true; cover.playsInline = true; cover.setAttribute('aria-label', copy.name); }
+    else cover.alt = copy.name;
+    cover.src = encodeURI(trip.cover);
+    oldCover.replaceWith(cover);
     const gallery = document.querySelector('#trip-gallery');
-    gallery.hidden = trip.photos.length === 0;
-    const mainImage = gallery.querySelector('.gallery-main');
+    const media = [...(trip.photos || []).map(src => ({ src, type: 'image' })), ...(trip.videos || []).map(src => ({ src, type: 'video' }))];
+    gallery.hidden = media.length === 0;
+    let mainImage = gallery.querySelector('.gallery-main');
     const thumbs = gallery.querySelector('.gallery-thumbs');
     let currentPhoto = 0;
     let photoRequest = 0;
     const preloadPhoto = (index) => {
       const image = new Image();
       image.decoding = 'async';
-      image.src = encodeURI(trip.photos[(index + trip.photos.length) % trip.photos.length]);
+      image.src = encodeURI(media[(index + media.length) % media.length].src);
     };
     const showPhoto = (index) => {
-      currentPhoto = (index + trip.photos.length) % trip.photos.length;
+      currentPhoto = (index + media.length) % media.length;
       const photoIndex = currentPhoto;
-      const src = trip.photos[photoIndex];
+      const item = media[photoIndex];
+      const src = item.src;
       const request = ++photoRequest;
-      mainImage.alt = `${copy.name} — ${photoIndex + 1}`;
-      mainImage.loading = 'eager';
-      mainImage.decoding = 'async';
-      mainImage.fetchPriority = 'high';
-      mainImage.onload = () => {
-        if (request !== photoRequest) return;
-        mainImage.classList.add('is-loaded');
-        preloadPhoto(currentPhoto + 1);
-      };
-      mainImage.src = encodeURI(src);
-      gallery.querySelector('.gallery-count').textContent = `${currentPhoto + 1} / ${trip.photos.length}`;
+      const replacement = item.type === 'video' ? document.createElement('video') : document.createElement('img');
+      replacement.className = 'gallery-main';
+      replacement.src = encodeURI(src);
+      if (item.type === 'video') { replacement.autoplay = true; replacement.muted = true; replacement.loop = true; replacement.playsInline = true; replacement.setAttribute('aria-label', `${copy.name} — ${photoIndex + 1}`); }
+      else { replacement.alt = `${copy.name} — ${photoIndex + 1}`; replacement.loading = 'eager'; replacement.decoding = 'async'; replacement.fetchPriority = 'high'; }
+      mainImage.replaceWith(replacement);
+      mainImage = replacement;
+      mainImage.onload = mainImage.onloadeddata = () => { if (request !== photoRequest) return; mainImage.classList.add('is-loaded'); preloadPhoto(currentPhoto + 1); };
+      gallery.querySelector('.gallery-count').textContent = `${currentPhoto + 1} / ${media.length}`;
       thumbs.querySelectorAll('button').forEach((button, i) => button.classList.toggle('active', i === currentPhoto));
     };
-    thumbs.replaceChildren(...trip.photos.map((src, index) => {
+    thumbs.replaceChildren(...media.map(({ src, type }, index) => {
       const button = document.createElement('button'); button.type = 'button'; button.setAttribute('aria-label', `View photo ${index + 1}`);
       const thumbnailSrc = trip.thumbnails?.[src] || (src.startsWith('images/') ? src.replace(/\.webp$/i, '-thumb.webp') : src);
-      const img = document.createElement('img'); img.src = encodeURI(thumbnailSrc); img.alt = ''; img.loading = 'eager'; img.decoding = 'async'; img.fetchPriority = 'low'; button.append(img);
-      img.onerror = () => { img.onerror = null; img.src = encodeURI(src); };
+      const img = type === 'video' ? video(src) : document.createElement('img'); img.src = encodeURI(type === 'video' ? src : thumbnailSrc); img.alt = ''; img.loading = 'eager'; img.decoding = 'async'; img.fetchPriority = 'low'; button.append(img);
+      if (type === 'image') img.onerror = () => { img.onerror = null; img.src = encodeURI(src); };
       button.addEventListener('click', () => showPhoto(index)); return button;
     }));
     gallery.querySelector('.gallery-prev').onclick = () => showPhoto(currentPhoto - 1);
     gallery.querySelector('.gallery-next').onclick = () => showPhoto(currentPhoto + 1);
-    if (trip.photos.length) showPhoto(0);
+    if (media.length) showPhoto(0);
     const message = lang === 'ar' ? `مرحبًا، أود حجز رحلة ${copy.name}. أرجو إرسال المواعيد المتاحة.` : `Hello, I would like to book ${copy.name}. Please send me the available dates.`;
     booking.href = `${contactUrl}?text=${encodeURIComponent(message)}`;
     floatingBooking.href = booking.href;
